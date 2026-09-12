@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RakshaNet — Cyber Defense</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">🛡️</div>
+      <div><div class="brand-name">RakshaNet</div><div class="brand-tag">Secure India, Empower Citizens</div></div>
+    </div>
+    <nav id="nav">
+      <button class="nav-item active" data-page="dashboard">▣ <span>Dashboard</span></button>
+      <button class="nav-item" data-page="traffic">⌁ <span>Live Traffic</span></button>
+      <button class="nav-item" data-page="alerts">♢ <span>Alerts</span><b class="badge">1</b></button>
+      <button class="nav-item" data-page="vault">▣ <span>File Vault</span></button>
+      <button class="nav-item" data-page="forensics">⌕ <span>Forensics</span></button>
+      <button class="nav-item" data-page="reports">▤ <span>Reports</span></button>
+      <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+    </nav>
+    <div class="sidebar-footer"><span>◈</span><div><b>Digital India</b><br>Safer Together</div></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div id="breadcrumb">rakshanet.local / dashboard</div>
+      <div class="top-right"><span>Sep 12, 2026<br><small id="clock">10:24:18 PM</small></span><div class="avatar">A</div><b>Admin</b><span>⌄</span></div>
+    </header>
+
+    <section id="dashboard" class="page active-page">
+      <div class="hero-row"><div><h1>Welcome back!</h1><p>Real-time protection for a safer, more inclusive digital India.</p></div>
+      <button class="danger-outline" id="simulateAttack">⚡ Simulate Attack</button></div>
+
+      <div class="cards four">
+        <div class="card stat"><div class="label">System Status</div><div class="big green">✓ SECURE</div><small>All systems operational</small></div>
+        <div class="card stat"><div class="label">Active Anomalies</div><div class="big red" id="anomalyCount">1</div><small id="anomalyDelta">↑ +0 in last 1h</small></div>
+        <div class="card stat"><div class="label">Files Protected</div><div class="big blue" id="filesProtected">18,204</div><small>↑ +142 today</small></div>
+        <div class="card stat"><div class="label">Threat Score</div><div class="score"><div class="ring" id="scoreRing"><span id="threatScore">12</span></div><b>/ 100</b></div></div>
+      </div>
+
+      <div class="grid-main">
+        <div class="card chart-card"><div class="card-head"><b>Request Volume — last 24h</b><span class="pill warning">⚠ spike flagged at 21:40</span></div><canvas id="trafficChart"></canvas></div>
+        <div class="card"><div class="card-head"><b>Recent Alerts</b><button class="link-btn" data-page-link="alerts">View All</button></div><div id="alertList" class="alert-list"></div></div>
+      </div>
+      <div class="cards three">
+        <div class="card mini"><span>Storage Protection</span><strong>87%</strong><small>18,204 / 21,000 files protected</small></div>
+        <div class="card mini"><span>Active Users</span><strong>12</strong><small>↑ 2 in last hour</small></div>
+        <div class="card mini"><span>Network Status</span><strong class="green">Normal</strong><small>No issues detected</small></div>
+      </div>
+    </section>
+
+    <section id="traffic" class="page"><div class="page-title"><div><h1>Live Traffic</h1><p>Continuous scoring of incoming activity and access patterns.</p></div><span class="live-dot">● LIVE</span></div>
+      <div class="card chart-large"><canvas id="trafficChart2"></canvas></div>
+      <div class="cards three"><div class="card"><span>Requests / min</span><strong id="rpm">342</strong><small>Normal baseline: 120–380</small></div><div class="card"><span>Blocked requests</span><strong class="red" id="blocked">27</strong><small>Last 24 hours</small></div><div class="card"><span>AI confidence</span><strong>96.4%</strong><small>Anomaly classifier</small></div></div>
+    </section>
+
+    <section id="alerts" class="page"><div class="page-title"><div><h1>Alerts</h1><p>AI-detected anomalies and security events.</p></div><button class="primary" id="clearAlerts">Mark all reviewed</button></div>
+      <div class="card table-card"><table><thead><tr><th>Time</th><th>Severity</th><th>Event</th><th>Source</th><th>Status</th></tr></thead><tbody id="alertsTable"></tbody></table></div>
+    </section>
+
+    <section id="vault" class="page"><div class="page-title"><div><h1>File Vault</h1><p>Encrypted and protected citizen data.</p></div><div><button class="secondary">＋ New Folder</button><button class="primary">⇧ Upload</button></div></div>
+      <div class="card searchbar">⌕ <input id="vaultSearch" placeholder="Search files and folders..."></div>
+      <div class="card table-card"><table><thead><tr><th>Name</th><th>Type</th><th>Size</th><th>Status</th><th>Last Modified</th><th>Actions</th></tr></thead><tbody id="vaultTable"></tbody></table></div>
+    </section>
+
+    <section id="incident" class="page"><div class="incident-banner"><div><h1>⚠ ACTIVE INCIDENT</h1><p>Unauthorized access confirmed on File Server 2</p></div><span>INC-2026-0091<br><b>High Severity</b></span></div>
+      <div class="steps"><div class="done">1 <span>Detect<small>Anomaly identified</small></span></div><div class="current">2 <span>Contain<small>Securing data</small></span></div><div>3 <span>Report<small>Generate forensic report</small></span></div></div>
+      <div class="cards three"><div class="card"><h3>Files Secured</h3><ul class="check-list" id="securedFiles"></ul></div><div class="card"><h3>Attacker Fingerprint</h3><p>◉ <b>IP Address</b><br>41.203.x.x (flagged range)</p><p>⌖ <b>Geolocation</b><br>Outside service region</p><p>◌ <b>Access Pattern</b><br>Brute-force scan</p></div><div class="card"><h3>Containment Action</h3><ul class="check-list"><li>✓ Decryption key revoked</li><li>✓ Session forcibly terminated</li><li>✓ All unaffected files locked</li><li>✓ No data deleted — evidence preserved</li></ul></div></div>
+      <div class="contain-bar"><div><b>Containment in progress...</b><div class="progress"><i id="progress"></i></div></div><b id="progressText">80%</b></div>
+      <div class="actions"><button class="secondary" data-page-link="forensics">View Logs</button><button class="primary" id="generateReport">Generate Report →</button></div>
+    </section>
+
+    <section id="forensics" class="page"><div class="page-title"><div><h1>Forensics</h1><p>Evidence timeline for the active and previous incidents.</p></div></div>
+      <div class="card timeline-card" id="timeline"></div>
+    </section>
+
+    <section id="reports" class="page"><div class="page-title"><div><h1>Incident Forensic Report</h1><p>Complete timeline and analysis of the security incident.</p></div><div><button class="secondary" id="exportReport">Export PDF</button><button class="primary">Share Report</button></div></div>
+      <div class="cards two"><div class="card"><h3>Incident Details</h3><div class="details"><span>Incident ID</span><b>INC-2026-0091</b><span>Date</span><b>12 Sep 2026</b><span>Start Time</span><b>21:39:02</b><span>End Time</span><b>21:41:30</b><span>Duration</span><b>2 minutes 28 seconds</b><span>Severity</span><b class="red">High</b><span>Status</span><b class="green">Closed</b></div></div><div class="card"><h3>Incident Timeline</h3><div id="reportTimeline"></div></div></div>
+      <div class="cards four"><div class="card"><span>Records Exfiltrated</span><strong>0</strong><small>No data leaked</small></div><div class="card"><span>Files Protected</span><strong>18,204</strong><small>All files secured</small></div><div class="card"><span>Attack Source</span><strong>41.203.x.x</strong><small>Outside service region</small></div><div class="card"><span>Compliance Ready</span><strong class="green">Yes</strong><small>Report ready for authorities</small></div></div>
+      <div class="success-note">✓ All data preserved. No files were deleted. Evidence is ready for further investigation.</div>
+    </section>
+
+    <section id="settings" class="page"><div class="page-title"><div><h1>Settings</h1><p>Configure monitoring and protection policies.</p></div></div>
+      <div class="card settings-card"><label><span><b>AI anomaly monitoring</b><small>Continuously score traffic and access patterns</small></span><input type="checkbox" checked></label><label><span><b>Automatic encryption</b><small>Chunk and encrypt files on anomaly trigger</small></span><input type="checkbox" checked></label><label><span><b>Plain-language reports</b><small>Generate reports suitable for non-technical operators</small></span><input type="checkbox" checked></label></div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
